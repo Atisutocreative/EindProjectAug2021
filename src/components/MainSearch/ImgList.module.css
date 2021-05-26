@@ -1,0 +1,16 @@
+.test p {
+    font-size: 14px;
+    text-align: center;
+    text-underline-style: none;
+}
+
+.test img {
+    display: block;
+    margin: 30px auto 10px auto;
+    width: 350px;
+}
+
+.test h6 {
+    text-align: center;
+    margin-bottom: 30px;
+}
