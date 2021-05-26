@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-form input, textarea  {
+    padding: 10px 5px 10px 10px;
+    margin-bottom: 15px;
+    border-style: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.contact-display-error {
+    display: inline-block;
+}
+
+.contact-display-error p {
+    color: red;
+    font-size: 10px;
+    margin: 5px 0 15px 10px;
+}

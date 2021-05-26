@@ -1,0 +1,67 @@
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.register-form input {
+    padding: 10px 5px 10px 10px;
+    margin-bottom: 15px;
+    border-style: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.btreg {
+    background-color: #106d68;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    margin: 5px;
+    border-radius: 4px;
+    border-style: none;
+    text-align: center;
+    outline: none;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btreg span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btreg span:after {
+    content: '>>>';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btreg:hover span {
+    padding-right: 25px;
+}
+
+.btreg:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.display-error {
+    display: inline-block;
+}
+
+.display-error p {
+    color: red;
+    font-size: 10px;
+    margin: 5px 0 15px 10px;
+}

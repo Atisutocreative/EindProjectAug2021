@@ -1,0 +1,50 @@
+.container {
+    padding: 30px;
+    display: grid;
+    row-gap: 15px;
+    column-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 200px;
+    grid-template-areas:
+    "b c"
+    "d d";
+}
+
+.home-wrapper {
+    padding: 30px;
+    background-color: rgba(142,182,179,0.9);
+    border-radius: 4px;
+}
+
+p {
+    color: white;
+}
+
+
+#box-b {
+    grid-area: b;
+}
+
+#box-c {
+    grid-area: c;
+}
+
+#box-d {
+    grid-area: d;
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 30px;
+        display: grid;
+        row-gap: 16px;
+        column-gap: 16px;
+        grid-template-columns: 600px;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+    "b"
+    "c"
+    "d";
+    }
+}
+

@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form input {
+    padding: 10px 5px 10px 10px;
+    margin-bottom: 15px;
+    border-style: none;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.logindisplay-error {
+    display: inline-block;
+}
+
+.logindisplay-error p {
+    color: red;
+    font-size: 10px;
+    margin: 5px 0 15px 10px;
+}

@@ -1,0 +1,45 @@
+.input-fields {
+    padding: 10px 5px 10px 10px;
+    border-radius: 4px;
+    border-style: none;
+    width: 70%;
+}
+
+.btmain-search {
+    background-color: #106d68;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    margin: 0 0 0 15px;
+    border-radius: 4px;
+    border-style: none;
+    text-align: center;
+    outline: none;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btmain-search span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btmain-search span:after {
+    content: '>>>';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btmain-search:hover span {
+    padding-right: 25px;
+}
+
+.btmain-search:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+

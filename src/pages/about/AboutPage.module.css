@@ -1,0 +1,14 @@
+.about-wrapper {
+    margin: 30px 30px 30px 30px;
+    padding: 30px;
+    width: 50%;
+    background-color: rgba(142,182,179,0.9);
+    border-radius: 4px;
+    height: 100%;
+}
+
+p {
+    color: white;
+}
+
+
