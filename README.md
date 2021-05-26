@@ -1,14 +1,14 @@
 ![Logo](./src/assets/Logo.png)
 
-###Eindopdracht MJ Novi Mei 2021
+### Eindopdracht MJ Novi Mei 2021
 
-#Inhoudsopgave
+# Inhoudsopgave
 1. Inleiding
 2. Benodigdheden
 3. Installatie handleiding
 4. Scripts NPM
 
-##Tekst Welkom
+## Tekst Welkom
 
 Lorem ipsum second wave hybrid working from home dumpster fire hurricane Greek alphabet hydroxychloroquine Queen's Gambit. Mask isolation essential monolith maskne wildfires. Mr. Peanut my camera is off hydroxychloroquine furlough Last Dance. Four seasons total landscaping social distance super-spreader event. Amazon prime sanitizer hindsight WHO.
 
@@ -16,7 +16,7 @@ Lorem ipsum second wave hybrid working from home dumpster fire hurricane Greek a
 
 
 
-#Benodigdheden
+# Benodigdheden
 1. Node.js
 2. NPM
 3. Github
@@ -24,11 +24,11 @@ Lorem ipsum second wave hybrid working from home dumpster fire hurricane Greek a
 5. Shutterstock developer account |  [Shutterstock developers](https://www.shutterstock.com/developers)
 6. Unsplash developer account | [UnSplash Developers](https://unsplash.com/developers)
 
-#Installatie handleiding
+# Installatie handleiding
 1. Clone de git repository
 2. Geef in de terminal het commando
    
-   ##npm install
+   ## npm install
 
 3. Maak een .env bestand aan en zet daar de volgende code in:
 
@@ -44,12 +44,12 @@ REACT_APP_API_FBMEAS= Firebase<br>
 
 4. Om de App te starten geef je het commando 
    
-    ##npm start
+    ## npm start
 
 (deze openen in http://localhost:3000)
 
 
-#Scripts NPM
+# Scripts NPM
 
 >‘start’ 	| starten van een project<br>
 ‘build’	| Optimaliseert JavaScript, HTML en CSS bestand voor productie<br>
