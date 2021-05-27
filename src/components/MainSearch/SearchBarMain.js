@@ -11,12 +11,11 @@ class SearchBar extends Component {
                        defaultValue={this.props.value}
                        onChange={this.props.action_change}
                        placeholder="Waar ben je op zoek naar?"
-
                 />
                 <button
                     className={styles["btmain-search"]}
-                    onClick={this.props.action_click}><span>Search</span></button>
-
+                    onClick={this.props.action_click}><span>Search</span>
+                </button>
             </div>
 
         )

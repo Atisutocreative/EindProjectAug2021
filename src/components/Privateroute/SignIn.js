@@ -4,10 +4,8 @@ import styles from "./SignIn.module.css";
 
 
 const SignIn = (props) => {
-
     const handleLogin = () => {
         login();
-        //props.history.push('/search');
     }
 
     return (

@@ -1,13 +1,13 @@
 .test p {
     font-size: 14px;
     text-align: center;
-    text-underline-style: none;
 }
 
 .test img {
     display: block;
-    margin: 30px auto 10px auto;
-    width: 350px;
+    padding: 1rem 1rem 5px 1rem;
+    width: 100%;
+    max-width: 100%;
 }
 
 .test h6 {

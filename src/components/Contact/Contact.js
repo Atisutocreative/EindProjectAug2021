@@ -18,7 +18,6 @@ const Contact = () => {
     const {handleSubmit, register, formState: {errors}, reset} = useForm();
 
     const onFormSubmit = async (data) => {
-        console.log(data);
         reset();
         try {
             await db.collection("contactForm").add({
@@ -46,7 +45,6 @@ const Contact = () => {
                 <div>
                     <h1>Contact</h1>
                 </div>
-
                     <div className={styles["contact-display-error"]}>
                         <label htmlFor="name-details"></label>
                         <input
@@ -54,7 +52,6 @@ const Contact = () => {
                             name="name"
                             id="name-details"
                             placeholder="Voor- en achternaam"
-
                             {...register(
                                 "name", {
                                     required: {
@@ -67,7 +64,6 @@ const Contact = () => {
                         />
                         {errors.name && <p>{errors.name.message}</p>}
                     </div>
-
                     <div className={styles["contact-display-error"]}>
                         <label htmlFor="phone-details"></label>
                         <input
@@ -90,10 +86,6 @@ const Contact = () => {
                         />
                         {errors.phone && <p>{errors.phone.message}</p>}
                     </div>
-
-
-
-
                     <div className={styles["contact-display-error"]}>
                         <label htmlFor="mail-details"></label>
                         <input
@@ -111,7 +103,6 @@ const Contact = () => {
                         />
                         {errors.email && <p>{errors.email.message}</p>}
                     </div>
-
                 <div className={styles["contact-display-error"]}>
                     <label htmlFor="text-details"></label>
                     <textarea className={styles["text-contact"]}

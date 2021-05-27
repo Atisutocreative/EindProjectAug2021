@@ -1,0 +1,6 @@
+.picture {
+    display: flex;
+    padding: 1rem 1rem 5px 1rem;
+    width: 100%;
+    max-width: 100%;
+}

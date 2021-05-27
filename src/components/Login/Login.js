@@ -1,30 +1,34 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
-import styles from  "./Login.module.css"
-import { useAuth } from "../../helpers/LoginContext";
+import {useForm} from "react-hook-form";
+import {useHistory} from "react-router-dom";
+import styles from "./Login.module.css"
 import SignIn from "../Privateroute/SignIn";
+import app from "../../Modules/Firebase";
 
 const Login = () => {
-    const {handleSubmit, register, formState: {errors} } = useForm();
-    const {fireBaseError, login} = useAuth();
+    const {handleSubmit, register, formState: {errors}} = useForm();
     const history = useHistory();
 
     const loginHandler = async (data) => {
-
-        try {
-            const response = await login(data);
-            // hier iets zetten dat hij fout gaat of wel goed op search pagina
-           //if (login)  {
-           //    return (
-          //         console.log("INLOGGEN IS GELUKT");
-           //}
-           //     return ("test", {fireBaseError});
-           // console.log(fireBaseError)
+        app.auth().signInWithEmailAndPassword(data.email, data.password).then(data => {
             history.push("/search")
-        } catch (error) {
-            console.error(error);
-        }
+            return data.user.getIdToken();
+        })
+
+            .catch(e => {
+
+                    console.error(e);
+                    if (e.code === 'auth/user-not-found') {
+                        console.error("gebruiker bestaat niet");
+                        document.getElementById('loginmelding').innerHTML = "Je staat niet in ons systeem, registeer je eerst";
+                    }
+                    if (e.code === 'auth/wrong-password') {
+                        console.error("wachtwoord verkeerd");
+                        document.getElementById('loginmelding').innerHTML = "wachtwoord verkeerd";
+                        errors.loginfout = 1;
+                    }
+                }
+            );
     }
 
     return (
@@ -33,6 +37,7 @@ const Login = () => {
                 <div>
                     <h1>Inloggen</h1>
                 </div>
+
                 <div className={styles["logindisplay-error"]}>
                     <label htmlFor="email-input"></label>
                     <input type="email"
@@ -44,6 +49,7 @@ const Login = () => {
                     />
                     {errors.email && <p>Verplicht veld</p>}
                 </div>
+
                 <div className={styles["logindisplay-error"]}>
                     <label htmlFor="passWordInput"></label>
                     <input type="password"
@@ -51,17 +57,19 @@ const Login = () => {
                            id="passWordInput"
                            placeholder="Wachtwoord"
                            aria-invalid={errors.password ? "true" : "false"}
-                           {...register("password", { required: true })}
+                           {...register("password", {required: true})}
                     />
                     {errors.password && <p>Verplicht veld</p>}
                 </div>
-                <div>
-                    <p>{fireBaseError}</p>
+
+                <div className={styles["logindisplay-error"]}>
+                    <p id="loginmelding"></p>
                 </div>
+
                 <div>
                     <SignIn/>
-
                 </div>
+
             </form>
         </div>
     )

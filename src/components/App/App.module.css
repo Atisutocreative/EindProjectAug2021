@@ -2,3 +2,17 @@
     margin-top: 100px;
     padding: 1em;
 }
+
+@media screen and (max-width: 860px) {
+    .main-content {
+        margin-top: 125px;
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .main-content {
+        margin-top: 150px;
+        padding: 1em;
+    }
+}

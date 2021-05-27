@@ -1,32 +1,39 @@
 .container {
-    padding: 30px;
+    position: relative;
+    min-height: 70vh;
+    margin: 30px 30px 100px 30px;
     display: grid;
     row-gap: 15px;
     column-gap: 15px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "a"
-    "b";
+    "a";
 }
 
 .intro-wrapper {
     padding: 30px;
     background-color: rgba(142,182,179,0.9);
     border-radius: 4px;
-    margin-bottom: 300px;
 }
 
 .intro-button {
     margin-top: 50px;
     margin-bottom: 30px;
- text-align: center;
+    text-align: center;
 }
 
 p {
     color: white;
+    margin-bottom: 15px;
 }
 
+.highlight {
+    color: #156d68;
+    font-style: italic;
+    text-shadow: 0.1em 0.1em 0.2em white
+
+}
 
 .btintro {
     background-color: #106d68;
@@ -63,4 +70,11 @@ p {
 .btintro:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        margin: 15px 15px 100px 15px;
+
+    }
 }

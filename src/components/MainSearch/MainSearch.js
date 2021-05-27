@@ -4,6 +4,8 @@ import SearchBarMain from './SearchBarMain';
 import ResultsMain from './ResultsMain';
 import ImgList from './ImgList';
 import styles from './MainSearch.module.css'
+import ComingSoon from "../ComingSoon/ComingSoon";
+
 
 class MainSearchBar extends Component {
     constructor(props) {
@@ -85,17 +87,17 @@ class MainSearchBar extends Component {
                         action_click={(e) => this.handle_searchTerms(e)}/>
                 </form>
                 <div className={styles["item"]} id={styles["box-b"]}>
-                    <h2>Unsplash</h2>
+                    <h1>Unsplash</h1>
                     <h2>{this.state.loader2}</h2>
                     <ImgList data={this.state.imgs}/>
                 </div>
                 <div className={styles["item"]} id={styles["box-c"]}>
-                    <h2>Shutterstock</h2>
+                    <h1>Shutterstock</h1>
                     <h2>{this.state.loader}</h2>
                     {this.state.items.map(item => <ResultsMain item={item} key={item.id}/>)}
                 </div>
                 <div className={styles["item"]} id={styles["box-d"]}>
-                    <h2>Coming Soon!</h2>
+                    <ComingSoon/>
                 </div>
                 <div className={styles["item"]} id={styles["box-e"]}>
                     <h2>Je bent ingelogd</h2>

@@ -31,14 +31,14 @@ const Register = () => {
                 lastName: data.lastName,
                 email: data.email
             })
-            .then (() => {
-                setSucces(true)
-            })
+                .then(() => {
+                    setSucces(true)
+                })
 
         } catch (error) {
-            console.error("ERRORREG", error);
-            //toHaveDisplayValue(error);
-
+            if (error.code === "auth/email-already-in-use") {
+                document.getElementById('loginmelding2').innerHTML = "Emailadres is al in gebruik";
+            }
         }
     }
 
@@ -52,7 +52,7 @@ const Register = () => {
 
     return (
         <>
-            {succes ? <h3>Je bent Geregisteerd</h3>:
+            {succes ? <h3>Je bent Geregisteerd</h3> :
                 <>
                     <div>
                         <form className={styles["register-form"]} onSubmit={handleSubmit(onFormSubmit)}>
@@ -71,7 +71,7 @@ const Register = () => {
                                         "firstName", {
                                             required: {
                                                 value: true,
-                                                message: "Verplicht veld."
+                                                message: "Verplicht veld"
                                             },
                                         }
                                     )}
@@ -90,7 +90,7 @@ const Register = () => {
                                         "lastName", {
                                             required: {
                                                 value: true,
-                                                message: "Verplicht veld."
+                                                message: "Verplicht veld"
                                             },
                                         }
                                     )}
@@ -109,7 +109,7 @@ const Register = () => {
                                         "city", {
                                             required: {
                                                 value: true,
-                                                message: "Voer uw woonplaats"
+                                                message: "Voer je woonplaats"
                                             },
                                         }
                                     )}
@@ -126,7 +126,7 @@ const Register = () => {
                                     placeholder="E-mailadres"
                                     {...register(
                                         "email", {
-                                            required: "Voer uw e-mailadres in.",
+                                            required: "Voer je e-mailadres in",
                                             validate: validateEmail,
                                         }
                                     )}
@@ -178,9 +178,12 @@ const Register = () => {
                                 {errors.checkPassword && <p>{errors.checkPassword.message}</p>}
                             </div>
 
+                            <div className={styles["display-error"]}>
+                                <p id="loginmelding2"></p>
+                            </div>
+
                             <button className={styles["btreg"]}
                                     type="submit"
-
                             ><span>Verzend</span>
                             </button>
 
@@ -190,7 +193,6 @@ const Register = () => {
             }
         </>
     )
-
 }
 
 

@@ -11,17 +11,12 @@ class HomePage extends Component {
             <>
                 <SildeShow/>
                 <div className={styles["container"]}>
-                    <div>
-                        <div className={styles["home-wrapper"]} id={styles["box-b"]}>
-                            <Login/>
-                        </div>
+                    <div className={styles["home-wrapper"]} id={styles["box-b"]}>
+                        <Login/>
                     </div>
-                    <div>
-                        <div className={styles["home-wrapper"]} id={styles["box-c"]}>
-                            <Register/>
-                        </div>
+                    <div className={styles["home-wrapper"]} id={styles["box-c"]}>
+                        <Register/>
                     </div>
-                    <div id={styles["box-d"]}></div>
                 </div>
             </>
         )

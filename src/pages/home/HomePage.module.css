@@ -1,13 +1,14 @@
 .container {
-    padding: 30px;
+    position: relative;
+    min-height: 70vh;
+    margin: 30px 30px 100px 30px;
     display: grid;
     row-gap: 15px;
     column-gap: 15px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 200px;
+    grid-template-rows: auto;
     grid-template-areas:
-    "b c"
-    "d d";
+    "b c";
 }
 
 .home-wrapper {
@@ -15,11 +16,6 @@
     background-color: rgba(142,182,179,0.9);
     border-radius: 4px;
 }
-
-p {
-    color: white;
-}
-
 
 #box-b {
     grid-area: b;
@@ -29,22 +25,19 @@ p {
     grid-area: c;
 }
 
-#box-d {
-    grid-area: d;
-}
-
 @media screen and (max-width: 576px) {
     .container {
-        padding: 30px;
+        position: relative;
+        min-height: 70vh;
+        margin: 15px 15px 100px 15px;
         display: grid;
-        row-gap: 16px;
-        column-gap: 16px;
-        grid-template-columns: 600px;
+        row-gap: 15px;
+        column-gap: 15px;
+        grid-template-columns: 1fr;
         grid-template-rows: auto auto;
         grid-template-areas:
     "b"
-    "c"
-    "d";
+    "c";
     }
 }
 

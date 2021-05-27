@@ -1,14 +1,19 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/Logo.png"
+import logo from "../../assets/Logo.png";
+
+
+function handleClick() {
+    document.location.href = "/";
+}
 
 const Header = () => {
 
     return (
         <>
             <header className={styles["main-header"]}>
-                <img id={styles["box-a"]} className={styles["logo"]} src={logo} alt="Logo Many Search"></img>
+                <img id={styles["box-a"]} className={styles["logo"]}  src={logo} alt="Logo Many Search" onClick={handleClick}></img>
 
                 <nav id={styles["box-b"]} className={styles["header-nav"]}>
                     <ul className={styles["header-list"]}>

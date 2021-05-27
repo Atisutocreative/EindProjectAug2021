@@ -43,3 +43,9 @@
     right: 0;
 }
 
+@media screen and (max-width: 576px) {
+    .input-fields {
+        width: 60%;
+    }
+
+}

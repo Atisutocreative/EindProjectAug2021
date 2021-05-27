@@ -1,17 +1,29 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import SearchBarMain from '../MainSearch/SearchBarMain';
 import ResultsMain from '../MainSearch/ResultsMain';
 import ImgList from '../MainSearch/ImgList';
 import styles from './TopicButton.module.css'
-import TopicButtonHandler from "./TopicButtonHandler";
+import black from '../../assets/TopicBlack.jpg'
+import white from '../../assets/TopicWhite.jpg'
+import red from '../../assets/TopicRed.jpg'
+import green from '../../assets/TopicGreen.jpg'
+import blue from '../../assets/TopicBleu.jpg'
+import yellow from '../../assets/TopicYellow.jpg'
+import bannans from '../../assets/TopicBan.jpg'
+import newyork from '../../assets/TopicNY.jpg'
+import car from '../../assets/TopicCar.jpg'
+import smile from '../../assets/TopicSmile.jpg'
+import reactPhoto from '../../assets/TopicReact.jpg'
+import Photo from '../../assets/TopicPhoto.jpg'
+import ComingSoon from "../ComingSoon/ComingSoon";
+
 
 class TopicButton extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            searchTerm: 'sun',
+            searchTerm: '',
             items: [],
             imgs: [],
             loader: '',
@@ -32,14 +44,12 @@ class TopicButton extends Component {
         return 'Basic ' + window.btoa(clientId + ':' + clientSecret);
     }
 
-    handle_searchTerms(e) {
-        e.preventDefault();
+    handle_searchTerms(e, zoekterm = false) {
         const API_URL = 'https://api.shutterstock.com/v2';
         const mediaType = this.state.mediaType;
-        const query = this.state.searchTerm;
+        const query = (zoekterm !== false ? zoekterm : this.state.searchTerm);
         const authorisation = this.handle_authorisation();
         this.setState({loader: 'Aan het laden'})
-        console.log("Zoeken naar: ", this.state.searchTerm)
 
         axios({
             method: 'get',
@@ -59,19 +69,18 @@ class TopicButton extends Component {
                     this.setState({items, loader: false});
             })
             .catch(err => {
-                console.log("ERROR MAINSERCH 1", err);
+                console.log("ERROR", err);
             })
 
         axios
             .get(
-                `https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${query}&client_id=${process.env.REACT_APP_API_KEY}`
+                `https://api.unsplash.com/search/photos/?page=1&per_page=20&query=${query}&client_id=${process.env.REACT_APP_API_KEY}`
             )
             .then(data => {
                 if (data.data.results.length === 0)
                     this.setState({loader2: 'Geen plaatjes gevonden op UnSplash', imgs: []});
                 else
                     this.setState({imgs: data.data.results, loader2: false});
-                //this.setState({ imgs: data.data.results, loader: false });
             })
             .catch(err => {
                 console.log('Error happened during fetching!', err);
@@ -80,31 +89,41 @@ class TopicButton extends Component {
 
     render() {
         return (
+            <>
             <div className={styles["container"]}>
-                <form className={styles["item"]} id={styles["box-a"]}>
-                    <SearchBarMain
-                        value={this.state.SearchTerm}
-                        action_change={e => this.setState({searchTerm: e.target.value})}
-                        action_click={(e) => this.handle_searchTerms(e)}
-                    />
-                </form>
+                <div className={styles["item"]} id={styles["box-a"]}>
+                    <div className={styles["topic"]}>
+                        <img className={styles["img-button"]} src={black} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'black')}></img>
+                        <img className={styles["img-button"]} src={white} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'white')}></img>
+                        <img className={styles["img-button"]} src={red}  alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'red')}></img>
+                        <img className={styles["img-button"]} src={blue} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'blue')}></img>
+                         <img className={styles["img-button"]} src={green} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'green')}></img>
+                        <img className={styles["img-button"]} src={yellow} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'yellow')}></img>
+                    </div>
+                    <div className={styles["topic"]}>
+                        <img className={styles["img-button"]} src={bannans} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'bannas')}></img>
+                        <img className={styles["img-button"]} src={newyork} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'new york')}></img>
+                        <img className={styles["img-button"]} src={car} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'car')}></img>
+                        <img className={styles["img-button"]} src={smile} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'smile')}></img>
+                        <img className={styles["img-button"]} src={reactPhoto} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'react')}></img>
+                        <img className={styles["img-button"]} src={Photo} alt="Atisuto" onClick={() => this.handle_searchTerms(true, 'photography')}></img>
+                    </div>
+                </div>
                 <div className={styles["item"]} id={styles["box-b"]}>
-                    <h2>Unsplash</h2>
+                    <h1>Unsplash</h1>
                     <h2>{this.state.loader2}</h2>
                     <ImgList data={this.state.imgs}/>
                 </div>
                 <div className={styles["item"]} id={styles["box-c"]}>
-                    <h2>Shutterstock</h2>
+                    <h1>Shutterstock</h1>
                     <h2>{this.state.loader}</h2>
                     {this.state.items.map(item => <ResultsMain item={item} key={item.id}/>)}
                 </div>
                 <div className={styles["item"]} id={styles["box-d"]}>
-                    <h2>Coming Soon!</h2>
-                </div>
-                <div className={styles["item"]} id={styles["box-e"]}>
-                    <h2>Je bent ingelogd</h2>
+                    <ComingSoon/>
                 </div>
             </div>
+            </>
         );
     }
 }

@@ -5,14 +5,13 @@ export const LoginAuth = createContext({});
 
 const LoginContext = (props) => {
     const [authUser, setAuthUser] = useState(null);
-    const [fireBaseError, setFireBaseError] = useState("");
 
-    useEffect(()=> {
+    useEffect(() => {
         const getUser = async () => {
 
             try {
                 await app.auth().onAuthStateChanged((user) => {
-                    if(user) {
+                    if (user) {
                         setAuthUser(user);
                     } else {
                         setAuthUser(null);
@@ -21,20 +20,28 @@ const LoginContext = (props) => {
             } catch (error) {
                 console.error(error);
             }
-
         }
         getUser();
 
     }, []);
-    const login = async (data) => {
-        try {
-            const response = await app.auth().signInWithEmailAndPassword(data.email, data.password);
-            return response;
 
-        } catch (e) {
-            console.error("ERROR", e.message);
-            setFireBaseError(fireBaseError);
-        }
+    const login = async (data) => {
+        app.auth().signInWithEmailAndPassword(data.email, data.password).then(data => {
+            console.log("gelukt");
+            return data.user.getIdToken();
+        })
+            .then(console.log("iets"))
+
+            .catch(e => {
+                    console.error(e);
+                if (e.code === 'auth/user-not-found') {
+                    console.error("Je staat niet in ons systeem, registeer je eerst");
+                }
+                    if (e.code === 'auth/wrong-password') {
+                        console.error("wachtwoord verkeerd");
+                    }
+                }
+            );
     }
 
     const logOut = () => {
@@ -44,7 +51,6 @@ const LoginContext = (props) => {
     const valueProvider = {
         authUser,
         setAuthUser,
-        fireBaseError,
         login,
         logOut
     };

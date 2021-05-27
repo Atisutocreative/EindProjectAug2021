@@ -7,10 +7,8 @@ import image4 from '../../assets/EindopdrachtMJ-13.jpg'
 import image5 from '../../assets/EindopdrachtMJ-14.jpg'
 
 
-
 const SildeShow = () => {
     return (
-
             <div>
                 <BackgroundSlider
                     images={[image1, image2, image3, image4,image5]}
@@ -18,7 +16,6 @@ const SildeShow = () => {
                     transition={1.5}
                 />
             </div>
-
     )
 }
 

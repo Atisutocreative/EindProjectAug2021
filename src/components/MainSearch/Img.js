@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Img = props =>
-    <li>
+    <div>
         <a href={props.link}>
             <img src={props.url} alt=""/>
         </a>
@@ -10,6 +10,6 @@ const Img = props =>
             <a href={props.user}>{props.name}</a>
             <a href={props.link}> See on Unsplash</a>
         </p>
-    </li>;
+    </div>;
 
 export default Img;

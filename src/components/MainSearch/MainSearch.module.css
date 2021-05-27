@@ -3,12 +3,15 @@ h2 {
 }
 
 .container {
-    padding: 30px;
+    position: relative;
+    min-height: 70vh;
+    margin: 30px 30px 100px 30px;
     display: grid;
     row-gap: 15px;
     column-gap: 15px;
     grid-template-columns: 1fr 1fr 20%;
     grid-template-rows: auto auto;
+    max-width: 100%;
     grid-template-areas:
     "a a e"
     "b c d";
@@ -19,7 +22,6 @@ h2 {
     background-color: rgba(142,182,179,0.9);
     border-radius: 4px;
 }
-
 
 #box-a {
     grid-area: a;
@@ -32,26 +34,56 @@ h2 {
 #box-c {
     grid-area: c;
 }
+
 #box-d {
     grid-area: d;
 }
 
-@media screen and (max-width: 1000px) {
+#box-e {
+    grid-area: e;
+}
+
+
+@media screen and (max-width: 860px) {
     .container {
-        padding: 30px;
+        position: relative;
+        min-height: 70vh;
+        margin: 15px 15px 100px 15px;
         display: grid;
         row-gap: 15px;
         column-gap: 15px;
-        grid-template-columns: 300px;
-        grid-template-rows: auto auto auto auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, auto);
         grid-template-areas:
     "a a"
     "b c"
     "d d"
     "e e";
+
     }
 }
 
-.input-fields {
-    padding-left: 5px;
+@media screen and (max-width: 576px) {
+    .container {
+        position: relative;
+        min-height: 70vh;
+        margin: 15px 15px 100px 0px;
+        display: grid;
+        row-gap: 15px;
+        column-gap: 15px;
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+    "a a"
+    "b c"
+    "e e"
+    "d d";
+    }
+
+    .item {
+        padding: 10px;
+    }
+
 }
+

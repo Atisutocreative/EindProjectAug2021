@@ -8,13 +8,17 @@
 3. Installatie handleiding
 4. Scripts NPM
 
-## Tekst Welkom
+## Welkom
 
-Lorem ipsum second wave hybrid working from home dumpster fire hurricane Greek alphabet hydroxychloroquine Queen's Gambit. Mask isolation essential monolith maskne wildfires. Mr. Peanut my camera is off hydroxychloroquine furlough Last Dance. Four seasons total landscaping social distance super-spreader event. Amazon prime sanitizer hindsight WHO.
+De site is ontstaan omdat wij vaak op stockfoto’s zoeken maar niet steeds wilden wisselen van site maar de foto’s naast elkaar wilde zien van verschillende aanbieders. In deze site zijn nu Shutterstock en Unsplash toevoegt waar je met 1 zoekwoord de resultaten mooi naast elkaar ziet van beide.
 
-![Website](./src/assets/WebDesignLookAndFeel.png)
+Als je nog niet geregistreerd bent kan je de pagina’s 'Get The Picture' | 'Topics' | 'About' nog niet zien. Dus registeer je om van alle faciliteiten te kunnen gebruiken. Indien je opmerking/suggesties heb vul dan het contactformulier in en stuur ons een bericht.
 
+![Website](./src/assets/Webdesig1.png)
 
+![Website](./src/assets/Webdesign2.png)
+
+![Website](./src/assets/Webdesign3.png)
 
 # Benodigdheden
 1. Node.js
