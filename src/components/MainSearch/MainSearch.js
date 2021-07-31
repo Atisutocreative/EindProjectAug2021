@@ -38,7 +38,7 @@ class MainSearchBar extends Component {
         const mediaType = this.state.mediaType;
         const query = this.state.searchTerm;
         const authorisation = this.handle_authorisation();
-        this.setState({loader: 'Aan het laden'})
+        this.setState({loader: 'Aan het laden', loader2: 'Aan het laden'})
         console.log("Zoeken naar: ", this.state.searchTerm)
 
         axios({

@@ -1,6 +1,6 @@
 ![Logo](./src/assets/Logo.png)
 
-### Eindopdracht MJ Novi Mei 2021
+### Eindopdracht MJ Novi Aug 2021
 
 # Inhoudsopgave
 1. Inleiding

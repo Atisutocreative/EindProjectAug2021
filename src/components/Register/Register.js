@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {useForm} from "react-hook-form";
 import styles from "./Register.module.css";
 import app from "../../Modules/Firebase";
-
 const db = app.firestore();
 
 export const validateEmail = (value) => {
@@ -18,7 +17,7 @@ const Register = () => {
     const {register, handleSubmit, formState: {errors}, reset, watch} = useForm();
     const passWords = watch(["password", "checkPassword"]);
     const [succes, setSucces] = useState(false)
-
+    const [emailinuse, setEmailinuse] = useState(false);
     const onFormSubmit = async (data) => {
         reset();
 
@@ -37,7 +36,7 @@ const Register = () => {
 
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
-                document.getElementById('loginmelding2').innerHTML = "Emailadres is al in gebruik";
+                setEmailinuse(true)
             }
         }
     }
@@ -132,6 +131,7 @@ const Register = () => {
                                     )}
                                 />
                                 {errors.email && <p>{errors.email.message}</p>}
+                                {emailinuse && <p>Emailadres is al in gebruik,<br /> Je kan hiermee Inloggen</p>}
                             </div>
 
                             <div className={styles["display-error"]}>
@@ -189,6 +189,7 @@ const Register = () => {
 
                         </form>
                     </div>
+
                 </>
             }
         </>

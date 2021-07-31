@@ -15,6 +15,7 @@ const ComingSoon = () => {
             <h2>Video Search</h2>
             <h2>Music Search</h2>
             <h2>Font Search</h2>
+            <h2>Test Github</h2>
         </div>
     )
 };
